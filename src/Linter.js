@@ -11,7 +11,7 @@ const Linter = {
       while ((match = re.exec(text)) != null) {
         const lintEntry = {
           start: match.index,
-          end: match.index + forbiddenWord.length,
+          end: match.index + (forbiddenWord.length - 1),
           text: forbiddenWord,
           type: 'forbidden',
           description: `"${forbiddenWord}" is a forbidden word.`,
