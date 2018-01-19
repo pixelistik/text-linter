@@ -61,7 +61,7 @@ export default {
 }
 
 .highlight {
-  border-bottom: 1px solid;
+  border-bottom: 2px solid;
 }
 
 .forbidden .highlight {
