@@ -7,9 +7,7 @@
         :key="hint.start + hint.end"
         class="overlay hint"
         :class="hint.type"
-      >
-        {{ hint.precedingText }}
-        <span class="highlight">{{ hint.text }}</span>
+      >{{ hint.precedingText }}<span class="highlight">{{ hint.text }}</span>
         <div class="description">
           {{ hint.description }}
         </div>
