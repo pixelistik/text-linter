@@ -2,8 +2,17 @@
   <div class="container">
     <div class="text-lint">
       <textarea v-model="text" class="textedit" spellcheck="false" id="textedit"></textarea>
-      <div v-for="hint in hints" class="overlay" id="overlay">
-        {{ hint.precedingText }}<span class="highlight">{{ hint.text }}</span>.
+      <div
+        v-for="hint in hints"
+        :key="hint.start + hint.end"
+        class="overlay hint"
+        :class="hint.type"
+      >
+        {{ hint.precedingText }}
+        <span class="highlight">{{ hint.text }}</span>
+        <div class="description">
+          {{ hint.description }}
+        </div>
       </div>
     </div>
   </div>
@@ -22,13 +31,16 @@ export default {
   computed: {
     hints() {
       return Linter.lint(this.text);
-    }
-  }
+    },
+  },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+* {
+  box-sizing: border-box;
+}
 .container {
   position: absolute;
 }
@@ -41,7 +53,7 @@ export default {
   height: 400px;
   padding: 0;
   margin: 0;
-  line-height: 1em;
+  line-height: 1.4em;
   border: 1px solid #333;
   padding: 1em;
 }
@@ -51,11 +63,21 @@ export default {
   pointer-events: none;
 }
 
-.highlight:hover {
-  background: red;
+.highlight {
+  border-bottom: 1px solid;
 }
 
-.highlight {
-  border-bottom: 1px solid red;
+.forbidden .highlight {
+  border-color: red;
+}
+
+.description {
+  display: inline-block;
+  color: #333;
+  position: absolute;
+  left: 400px;
+  width: 400px;
+  margin-left: 1.2em;
+  background: #fff;
 }
 </style>
