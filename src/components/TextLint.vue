@@ -8,9 +8,7 @@
         class="overlay hint"
         :class="hint.type"
       >{{ hint.precedingText }}<span class="highlight">{{ hint.text }}</span>
-        <div class="description">
-          {{ hint.description }}
-        </div>
+        <div class="description">{{ hint.description }}</div>
       </div>
     </div>
   </div>
@@ -31,6 +29,11 @@ export default {
       return Linter.lint(this.text);
     },
   },
+  watch: {
+    text(){
+      console.log(this.$el.querySelectorAll('.highlight')[0].offsetTop);
+    }
+  }
 };
 </script>
 
@@ -59,6 +62,7 @@ export default {
 .overlay {
   color: rgba(0, 0, 0, 0);
   pointer-events: none;
+  white-space: pre-wrap;
 }
 
 .highlight {

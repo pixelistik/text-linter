@@ -1,4 +1,8 @@
-const FORBIDDEN_WORDS = ['React', 'Java'];
+const FORBIDDEN_WORDS = [
+  'React',
+  'Java',
+  'Internet Explorer',
+];
 
 const Linter = {
   lint: function lint(text) {
