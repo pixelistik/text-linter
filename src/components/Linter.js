@@ -24,20 +24,6 @@ const Linter = {
 
         lints.push(lintEntry);
       }
-
-      /*
-      if (text.indexOf(forbiddenWord) > -1) {
-        const lintEntry = {
-          start: text.indexOf(forbiddenWord),
-          end: text.indexOf(forbiddenWord) + forbiddenWord.length,
-          text: forbiddenWord,
-          type: 'forbidden',
-          description: `"${forbiddenWord}" is a forbidden word.`,
-          precedingText: text.substring(0, text.indexOf(forbiddenWord)),
-        };
-
-        lints.push(lintEntry);
-      } */
     });
     return lints;
   },

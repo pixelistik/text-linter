@@ -29,11 +29,6 @@ export default {
       return Linter.lint(this.text);
     },
   },
-  watch: {
-    text(){
-      console.log(this.$el.querySelectorAll('.highlight')[0].offsetTop);
-    }
-  }
 };
 </script>
 
