@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import Linter from './Linter';
+import Linter from '@/Linter';
 
 export default {
   name: 'TextLint',
