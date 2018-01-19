@@ -68,6 +68,10 @@ export default {
   border-color: red;
 }
 
+.common-mistake .highlight {
+  border-color: blue;
+}
+
 .description {
   display: inline-block;
   color: #333;

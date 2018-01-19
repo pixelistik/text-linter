@@ -4,6 +4,9 @@ const Rules = {
     'Java',
     'Internet Explorer',
   ],
+  COMMON_MISTAKES: [
+    { wrong: 'LKW', correct: 'Lkw' },
+  ],
 };
 
 export default Rules;
