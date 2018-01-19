@@ -1,14 +1,10 @@
-const FORBIDDEN_WORDS = [
-  'React',
-  'Java',
-  'Internet Explorer',
-];
+import Rules from '@/Rules';
 
 const Linter = {
   lint: function lint(text) {
     const lints = [];
 
-    FORBIDDEN_WORDS.forEach((forbiddenWord) => {
+    Rules.FORBIDDEN_WORDS.forEach((forbiddenWord) => {
       const re = RegExp(`${forbiddenWord}`, 'g');
       let match;
       /* eslint no-cond-assign: ["error", "except-parens"] */
