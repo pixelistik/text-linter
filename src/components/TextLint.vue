@@ -45,7 +45,7 @@ export default {
   position: absolute;
   font-family: Courier;
   font-size: 16px;
-  width: 400px;
+  width: 50vw;
   height: 400px;
   padding: 0;
   margin: 0;
@@ -76,7 +76,7 @@ export default {
   display: inline-block;
   color: #333;
   position: absolute;
-  left: 400px;
+  left: 50vw;
   width: 400px;
   margin-left: 1.2em;
   background: #fff;
