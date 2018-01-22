@@ -1,7 +1,13 @@
 <template>
   <div class="container">
     <div class="text-lint">
-      <textarea v-model="text" class="textedit" spellcheck="false" id="textedit"></textarea>
+      <textarea
+        v-model="text"
+        @mousemove="showHintDetails"
+        class="textedit"
+        spellcheck="false"
+        id="textedit">
+      </textarea>
       <div
         v-for="hint in hints"
         :key="hint.start + hint.end"
@@ -29,6 +35,27 @@ export default {
       return Linter.lint(this.text);
     },
   },
+  methods: {
+    showHintDetails(event) {
+      const hintElements = this.$el.querySelectorAll('.highlight');
+      for (let i = 0; i < hintElements.length; i += 1) {
+        const left = hintElements[i].offsetLeft;
+        const right = hintElements[i].offsetLeft + hintElements[i].offsetWidth;
+
+        const top = hintElements[i].offsetTop;
+        const bottom = hintElements[i].offsetTop + hintElements[i].offsetHeight;
+
+        if (
+          left < event.x && event.x < right &&
+                top < event.y && event.y < bottom
+        ) {
+          hintElements[i].classList.add('highlight--hovered');
+        } else {
+          hintElements[i].classList.remove('highlight--hovered');
+        }
+      }
+    },
+  },
 };
 </script>
 
@@ -45,11 +72,11 @@ export default {
   position: absolute;
   font-family: Courier;
   font-size: 16px;
-  width: 50vw;
+  width: 90vw;
   height: 400px;
   padding: 0;
   margin: 0;
-  line-height: 1.4em;
+  line-height: 1.2em;
   border: 1px solid #333;
   padding: 1em;
 }
@@ -73,12 +100,16 @@ export default {
 }
 
 .description {
-  display: inline-block;
+  display: none;
   color: #333;
   position: absolute;
-  left: 50vw;
-  width: 400px;
-  margin-left: 1.2em;
+  padding: 0.2em;
   background: #fff;
+  border: 1px solid #333;
+  z-index: 100;
+}
+
+.highlight--hovered+.description {
+    display: inline-block;
 }
 </style>
