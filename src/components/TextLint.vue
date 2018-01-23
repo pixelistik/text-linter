@@ -13,8 +13,9 @@
         :key="hint.start + hint.end"
         class="overlay hint"
         :class="hint.type"
-      >{{ hint.precedingText }}<span class="highlight">{{ hint.text }}</span>
-        <div class="description">{{ hint.description }}</div>
+      >{{ hint.precedingText }}<span class="highlight">{{ hint.text }}<div class="description">
+          {{ hint.description }}</div>
+      </span>
       </div>
     </div>
   </div>
@@ -76,7 +77,7 @@ export default {
   height: 400px;
   padding: 0;
   margin: 0;
-  line-height: 1.2em;
+  line-height: 1.5em;
   border: 1px solid #333;
   padding: 1em;
 }
@@ -89,6 +90,7 @@ export default {
 
 .highlight {
   border-bottom: 2px solid;
+  position: relative;
 }
 
 .forbidden .highlight {
@@ -104,12 +106,16 @@ export default {
   color: #333;
   position: absolute;
   padding: 0.2em;
+  width: 20em;
+  left: 0;
+  bottom: 1.1em;
   background: #fff;
   border: 1px solid #333;
-  z-index: 100;
+  white-space: normal;
+  text-align: center;
 }
 
-.highlight--hovered+.description {
-    display: inline-block;
+.highlight--hovered .description {
+    display: block;
 }
 </style>
