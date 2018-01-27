@@ -38,4 +38,18 @@ describe('Linter', () => {
       expect(hints[0].end).to.equal(2);
     });
   });
+
+  describe('Typos', () => {
+    it('should find a simple typo', () => {
+      const hints = Linter.lint('Softwre');
+
+      expect(hints[0].type).to.equal('typo');
+    });
+
+    it('should find a multi-word typo', () => {
+      const hints = Linter.lint('Quality Assuranc');
+
+      expect(hints[0].type).to.equal('typo');
+    });
+  });
 });

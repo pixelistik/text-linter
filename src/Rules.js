@@ -7,6 +7,10 @@ const Rules = {
   COMMON_MISTAKES: [
     { wrong: 'LKW', correct: 'Lkw' },
   ],
+  COMMON_WORDS: [
+    'Software',
+    'Quality Assurance',
+  ],
 };
 
 export default Rules;

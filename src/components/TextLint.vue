@@ -101,6 +101,10 @@ export default {
   border-color: blue;
 }
 
+.typo .highlight {
+  border-color: yellow;
+}
+
 .description {
   display: none;
   color: #333;
