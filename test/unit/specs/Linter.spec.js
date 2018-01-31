@@ -44,12 +44,45 @@ describe('Linter', () => {
       const hints = Linter.lint('Softwre');
 
       expect(hints[0].type).to.equal('typo');
+      expect(hints[0].text).to.equal('Softwre');
+      expect(hints[0].correctedText).to.equal('Software');
     });
 
     it('should find a multi-word typo', () => {
       const hints = Linter.lint('Quality Assuranc');
 
       expect(hints[0].type).to.equal('typo');
+      expect(hints[0].text).to.equal('Quality Assuranc');
+      expect(hints[0].correctedText).to.equal('Quality Assurance');
+    });
+
+    it('should find a typo within a sentence', () => {
+      const hints = Linter.lint('My Softwre is tested.');
+
+      expect(hints[0].type).to.equal('typo');
+      expect(hints[0].text).to.equal('Softwre');
+      expect(hints[0].correctedText).to.equal('Software');
+    });
+
+    it('should find a typo that ends in punctuation', () => {
+      const hints = Linter.lint('Tested is my Softwre.');
+
+      expect(hints[0].type).to.equal('typo');
+      expect(hints[0].text).to.equal('Softwre');
+      expect(hints[0].correctedText).to.equal('Software');
+      expect(hints[0].precedingText).to.equal('Tested is my ');
+    });
+
+    it('should not find a false positive typo due to punctuation', () => {
+      const hints = Linter.lint('Software.');
+
+      expect(hints.length).to.equal(0);
+    });
+
+    it('should have the correct preceding text including multiple line breaks', () => {
+      const hints = Linter.lint('\n\nSoftwre');
+
+      expect(hints[0].precedingText).to.equal('\n\n');
     });
   });
 });

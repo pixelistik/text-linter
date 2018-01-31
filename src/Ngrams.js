@@ -1,19 +1,34 @@
 const Ngrams = {
   ngrams(text, n) {
-    const words = text.split(' ');
+    const splitByRe = RegExp(/\W/);
+
+    const words = text.split(splitByRe);
+
     const ngrams = [];
     let startPosition = 0;
+
     words.forEach((word, index) => {
-      const elements = [];
-      for (let i = 0; i < n; i += 1) {
-        if (typeof words[index + i] === 'undefined') {
-          return;
+      if (word !== '') {
+        const elements = [];
+        let i = 0;
+
+        while (elements.length < n) {
+          if (typeof words[index + i] === 'undefined') {
+            return;
+          }
+
+          if (words[index + i] !== '') {
+            elements.push(words[index + i]);
+          }
+          i += 1;
         }
-        elements.push(words[index + i]);
+
+        ngrams.push({ elements, start: startPosition });
       }
-      ngrams.push({ elements, start: startPosition });
-      startPosition += words[index].length + 1;
+
+      startPosition += word.length + 1;
     });
+
     return ngrams;
   },
 };

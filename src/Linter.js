@@ -52,7 +52,7 @@ const Linter = {
 
     Rules.COMMON_WORDS.forEach((commonWord) => {
       grams.forEach((gram) => {
-        const gramText = gram.elements.join(' ');
+        const gramText = gram.elements.join(' ').trim();
         const distance = levenshtein(commonWord, gramText);
 
         if (distance === 1) {
@@ -61,6 +61,7 @@ const Linter = {
             start: gram.start,
             end: gram.start + gramText.length,
             text: gramText,
+            correctedText: commonWord,
             description: `"${gramText}" may be a typo and should be "${commonWord}".`,
             precedingText: text.substring(0, gram.start),
           };

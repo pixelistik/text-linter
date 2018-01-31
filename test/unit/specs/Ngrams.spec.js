@@ -34,4 +34,21 @@ describe('Ngrams', () => {
 
     expect(result).to.deep.equal(expected);
   });
+
+  it('should split correctly with multiple whitespace', () => {
+    const text = 'Just  three words';
+    const result = Ngrams.ngrams(text, 2);
+    const expected = [
+      {
+        elements: ['Just', 'three'],
+        start: 0,
+      },
+      {
+        elements: ['three', 'words'],
+        start: 6,
+      },
+    ];
+
+    expect(result).to.deep.equal(expected);
+  });
 });
