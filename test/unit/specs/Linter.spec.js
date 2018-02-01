@@ -85,4 +85,14 @@ describe('Linter', () => {
       expect(hints[0].precedingText).to.equal('\n\n');
     });
   });
+
+  describe('Regex Rules', () => {
+    it('should suggest typographic (German) quotes', () => {
+      const hints = Linter.lint('Meine "Quotes"');
+
+      expect(hints[0].type).to.equal('regex-rule');
+      expect(hints[0].text).to.equal('"Quotes"');
+      expect(hints[0].description).to.equal('Use typographic quotes, like „this“');
+    });
+  })
 });

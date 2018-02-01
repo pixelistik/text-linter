@@ -105,6 +105,10 @@ export default {
   border-color: yellow;
 }
 
+.regex-rule .highlight {
+  border-color: purple;
+}
+
 .description {
   display: none;
   color: #333;

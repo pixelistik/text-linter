@@ -12,6 +12,9 @@ const Rules = {
     'Software',
     'Quality Assurance',
   ],
+  REGEX: [
+    { regex: '".+"', description: 'Use typographic quotes, like „this“' },
+  ],
 };
 
 export default Rules;
