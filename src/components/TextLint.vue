@@ -79,7 +79,7 @@ export default {
   margin: 0;
   line-height: 1.5em;
   border: 1px solid #333;
-  padding: 1em;
+  padding: 2em 1em;
 }
 
 .overlay {
@@ -117,6 +117,7 @@ export default {
   border: 1px solid #333;
   white-space: normal;
   text-align: center;
+  z-index: 1;
 }
 
 .highlight--hovered .description {
