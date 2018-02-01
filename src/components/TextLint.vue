@@ -28,7 +28,7 @@ export default {
   name: 'TextLint',
   data() {
     return {
-      text: 'Welcome to Your Vue.js App without React',
+      text: 'Welcome to Your Vue.js App without React (or Java).\n\nThis Softwre spots typos. And common errors, like "FireFox".',
     };
   },
   computed: {

@@ -6,6 +6,7 @@ const Rules = {
   ],
   COMMON_MISTAKES: [
     { wrong: 'LKW', correct: 'Lkw' },
+    { wrong: 'FireFox', correct: 'Firefox' },
   ],
   COMMON_WORDS: [
     'Software',
