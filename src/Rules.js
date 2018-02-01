@@ -13,7 +13,14 @@ const Rules = {
     'Quality Assurance',
   ],
   REGEX: [
-    { regex: '".+"', description: 'Use typographic quotes, like „this“' },
+    {
+      regex: /".+"/g,
+      description: 'Use typographic quotes, like „this“',
+    },
+    {
+      regex: /meist ?\w+ste/g,
+      description: 'Avoid redundant Superlativ: both of "meist" and "...ste" are too much.',
+    },
   ],
 };
 

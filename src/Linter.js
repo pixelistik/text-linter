@@ -72,10 +72,9 @@ const Linter = {
     });
 
     Rules.REGEX.forEach((rule) => {
-      const re = RegExp(rule.regex, 'g');
       let match;
       /* eslint no-cond-assign: ["error", "except-parens"] */
-      while ((match = re.exec(text)) != null) {
+      while ((match = rule.regex.exec(text)) != null) {
         const lintEntry = {
           start: match.index,
           end: match.index + (match[0].length - 1),

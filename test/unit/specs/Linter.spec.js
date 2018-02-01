@@ -94,5 +94,23 @@ describe('Linter', () => {
       expect(hints[0].text).to.equal('"Quotes"');
       expect(hints[0].description).to.equal('Use typographic quotes, like „this“');
     });
-  })
+
+    describe('Redundant Superlativ (German)', () => {
+      it('should detect redundant Superlativ in one word', () => {
+        const hints = Linter.lint('Die meistgeliebteste Grammatik');
+
+        expect(hints[0].type).to.equal('regex-rule');
+        expect(hints[0].text).to.equal('meistgeliebteste');
+        expect(hints[0].description).to.equal('Avoid redundant Superlativ: both of "meist" and "...ste" are too much.');
+      });
+
+      it('should detect redundant Superlativ in two words', () => {
+        const hints = Linter.lint('Die meist geliebteste Grammatik');
+
+        expect(hints[0].type).to.equal('regex-rule');
+        expect(hints[0].text).to.equal('meist geliebteste');
+        expect(hints[0].description).to.equal('Avoid redundant Superlativ: both of "meist" and "...ste" are too much.');
+      });
+    });
+  });
 });
