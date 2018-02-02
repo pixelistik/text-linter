@@ -23,6 +23,7 @@
 
 <script>
 import Linter from '@/Linter';
+import LanguageDetector from '@/LanguageDetector';
 
 export default {
   name: 'TextLint',
@@ -34,6 +35,9 @@ export default {
   computed: {
     hints() {
       return Linter.lint(this.text);
+    },
+    detectedLanguage() {
+      return LanguageDetector.detect(this.text);
     },
   },
   methods: {
