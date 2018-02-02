@@ -10,7 +10,7 @@
       </textarea>
       <div
         v-for="hint in hints"
-        :key="hint.start + hint.end"
+        :key="hint.start + hint.end + hint.type"
         class="overlay hint"
         :class="hint.type"
       >{{ hint.precedingText }}<span class="highlight">{{ hint.text }}<div class="description">
