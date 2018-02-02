@@ -117,7 +117,7 @@ export default {
   width: 20em;
   left: 0;
   bottom: 1.1em;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.95);
   border: 1px solid #333;
   white-space: normal;
   text-align: center;
