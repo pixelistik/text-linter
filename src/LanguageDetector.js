@@ -12,10 +12,8 @@ const LanguageDetector = {
 
     languages.forEach((language) => {
       const score = languageCommonWordCorpuses[language].reduce((scoreSum, commonWord) => {
-        if (text.indexOf(commonWord) !== -1) {
-          return scoreSum + 1;
-        }
-        return scoreSum;
+        const count = (text.match(RegExp(`${commonWord}`, 'g')) || []).length;
+        return scoreSum + count;
       }, 0);
 
       languageScores.push({
