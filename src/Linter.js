@@ -59,7 +59,7 @@ const Linter = {
           const lintEntry = {
             type: 'typo',
             start: gram.start,
-            end: gram.start + gramText.length,
+            end: gram.start + (gramText.length - 1),
             text: gramText,
             correctedText: commonWord,
             description: `"${gramText}" may be a typo and should be "${commonWord}".`,

@@ -46,6 +46,8 @@ describe('Linter', () => {
       expect(hints[0].type).to.equal('typo');
       expect(hints[0].text).to.equal('Softwre');
       expect(hints[0].correctedText).to.equal('Software');
+      expect(hints[0].start).to.equal(0);
+      expect(hints[0].end).to.equal(6);
     });
 
     it('should find a multi-word typo', () => {
