@@ -84,9 +84,7 @@ const Linter = {
           precedingText: text.substring(0, match.index),
         };
 
-        const insertMatchReferences = (correctedTextTemplate, matches) => {
-          return correctedTextTemplate.replace(/\$(\d)/g, (match, id) => matches[id]);
-        };
+        const insertMatchReferences = (correctedTextTemplate, matches) => correctedTextTemplate.replace(/\$(\d)/g, (_match, id) => matches[id]);
 
         if (typeof rule.correct !== 'undefined') {
           lintEntry.correctedText = insertMatchReferences(rule.correct, match);

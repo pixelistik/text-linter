@@ -64,7 +64,7 @@ export default {
     },
     fixByHint(hint) {
       this.text = Linter.fixText(this.text, hint);
-    }
+    },
   },
 };
 </script>
