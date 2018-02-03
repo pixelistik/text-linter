@@ -115,6 +115,7 @@ export default {
 
 .description {
   display: none;
+  pointer-events: auto;
   color: #333;
   position: absolute;
   padding: 0.2em;
@@ -128,7 +129,8 @@ export default {
   z-index: 1;
 }
 
-.highlight--hovered .description {
+.highlight--hovered .description,
+.description:hover {
     display: block;
 }
 </style>
