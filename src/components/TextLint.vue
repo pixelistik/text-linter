@@ -14,7 +14,9 @@
         class="overlay hint"
         :class="hint.type"
       >{{ hint.precedingText }}<span class="highlight">{{ hint.text }}<div class="description">
-          {{ hint.description }}</div>
+          {{ hint.description }}
+          <button v-if="hint.correctedText" @click="fixByHint(hint)">Fix</button>
+        </div>
       </span>
       </div>
     </div>
@@ -60,6 +62,9 @@ export default {
         }
       }
     },
+    fixByHint(hint) {
+      this.text = Linter.fixText(this.text, hint);
+    }
   },
 };
 </script>
