@@ -90,6 +90,13 @@ const Linter = {
 
     return lints;
   },
+
+  fixText(text, hint) {
+    const textBefore = text.substring(0, hint.start);
+    const textAfter = text.substring(hint.end + 1);
+
+    return textBefore + hint.correctedText + textAfter;
+  },
 };
 
 export default Linter;

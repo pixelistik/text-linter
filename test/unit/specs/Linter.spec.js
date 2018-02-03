@@ -113,4 +113,30 @@ describe('Linter', () => {
       });
     });
   });
+
+  describe('Fixing text', () => {
+    it('should insert a simple fix of the same length', () => {
+      const text = 'Wrong word.';
+      const hint = {
+        start: 0,
+        end: 4,
+        correctedText: 'Right',
+      };
+
+      const result = Linter.fixText(text, hint);
+      expect(result).to.equal('Right word.');
+    });
+
+    it('should insert a fix within the text, with different length', () => {
+      const text = 'Some wrong word.';
+      const hint = {
+        start: 5,
+        end: 9,
+        correctedText: 'corrected',
+      };
+
+      const result = Linter.fixText(text, hint);
+      expect(result).to.equal('Some corrected word.');
+    });
+  });
 });
