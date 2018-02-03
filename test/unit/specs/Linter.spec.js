@@ -97,6 +97,13 @@ describe('Linter', () => {
       expect(hints[0].description).to.equal('Use typographic quotes, like „this“');
     });
 
+    it('should provide a corrected text if available', () => {
+      const hints = Linter.lint('Meine "Quotes"');
+
+      expect(hints[0].type).to.equal('regex-rule');
+      expect(hints[0].correctedText).to.equal('„Quotes“');
+    });
+
     describe('Redundant Superlativ (German)', () => {
       it('should detect redundant Superlativ in one word', () => {
         const hints = Linter.lint('Die meistgeliebteste Grammatik');

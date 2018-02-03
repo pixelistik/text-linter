@@ -14,8 +14,9 @@ const Rules = {
   ],
   REGEX: [
     {
-      regex: /".+"/g,
+      regex: /"(.+)"/g,
       description: 'Use typographic quotes, like „this“',
+      correct: '„$1“',
     },
     {
       regex: /meist ?\w+ste/g,
