@@ -1,6 +1,12 @@
 # text-linter
 
-> A text quality checker
+A text quality checker.
+
+Paste your text into a textarea in the browser. Common mistakes
+will be highlighted and optionally fixed.
+
+Look at `Rules.js` in order to extend and adapt
+the rules that are checked.
 
 ## Build Setup
 
