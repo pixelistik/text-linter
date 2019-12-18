@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "levenshtein-edit-distance": "^2.0.2",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.13",
     "vue": "^2.5.2"
   },
   "devDependencies": {
